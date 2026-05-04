@@ -1,10 +1,10 @@
-%global commit          1c2e0fbbd8f39ee7ff070831b6cd6e0a56261e5e
+%global commit          f855983a2cff79b0ee13879ea40e2b4d60c1772f
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 %global upstreamname    noctalia-shell
 
 Name:   	noctalia-shell-v5
 Version:	5.0.0
-Release:	0.16.git%{shortcommit}%{?dist}
+Release:	0.17.git%{shortcommit}%{?dist}
 Summary:	A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES, with no Qt or GTK dependency.
 
 License:	MIT
@@ -23,7 +23,7 @@ BuildRequires:  pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(glesv2)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(libcurl)
-BuildRequires:  pkgconfig(librsvg2)
+BuildRequires:  pkgconfig(librsvg-2.0)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  pkgconfig(pam)
 BuildRequires:  pkgconfig(pango)

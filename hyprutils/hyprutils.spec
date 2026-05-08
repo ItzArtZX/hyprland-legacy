@@ -1,11 +1,14 @@
 Name:           hyprutils
 Version:        0.13.0
-Release:        %autorelease
+Release:        %autorelease -b2
 Summary:        Hyprland utilities library used across the ecosystem
 
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprutils
 Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+
+# Backport commit to fix hyprland-git build
+Patch:          https://github.com/hyprwm/hyprutils/commit/3e170e5ad010602671f5f25b327e8bdb8fdd532c.patch
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch:    %{ix86}

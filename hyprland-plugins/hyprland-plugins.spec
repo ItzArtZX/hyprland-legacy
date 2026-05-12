@@ -8,11 +8,7 @@
                 borders-plus-plus
                 csgo-vulkan-fix
                 hyprbars
-                hyprexpo
                 hyprfocus
-                hyprtrails
-                hyprwinwrap
-                xtra-dispatchers
 }
 
 %if !%{defined build_for}

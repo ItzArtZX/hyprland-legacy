@@ -7,7 +7,7 @@ Summary:        Extremely fast, in memory, JSON and interface library
 
 License:        MIT
 URL:            https://github.com/stephenberry/glaze
-Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source:         %{url}/archive/v%{version}/glaze-%{version}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -18,16 +18,16 @@ BuildRequires:  gcc-c++
 %package        devel
 Summary:        Development files for %{name}
 BuildArch:      noarch
-Provides:       %{name}-static = %{version}-%{release}
+Provides:       glaze-static = %{version}-%{release}
 %description    devel
-Development files for %{name}.
+Development files for glaze.
 
 %prep
 %autosetup -p1
 
 %build
 %cmake \
-    -Dglaze_INSTALL_CMAKEDIR=%{_datadir}/cmake/%{name} \
+    -Dglaze_INSTALL_CMAKEDIR=%{_datadir}/cmake/glaze \
     -Dglaze_DISABLE_SIMD_WHEN_SUPPORTED:BOOL=ON \
     -Dglaze_DEVELOPER_MODE:BOOL=OFF \
     -Dglaze_ENABLE_FUZZING:BOOL=OFF
@@ -39,8 +39,8 @@ Development files for %{name}.
 %files devel
 %license LICENSE
 %doc README.md
-%{_datadir}/cmake/%{name}/
-%{_includedir}/%{name}/
+%{_datadir}/cmake/glaze/
+%{_includedir}/glaze/
 
 %changelog
 %autochangelog

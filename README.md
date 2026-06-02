@@ -1,3 +1,5 @@
 This [Copr repository](https://copr.fedorainfracloud.org/coprs/artzx/hyprland-legacy/) will contain Hyprland at the last version before the transition to Lua configuration. WARNING: this repo may not contain several hyprland dependencies. You will need to add another hyprland copr repository that contains them, for example [sdegler/hyprland](https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/) or [lionheartp/Hyprland](https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland/).
 
 This isn't the complete list of .spec files I am using in the Copr repository. To view them all, including sources, check out the Copr website.
+
+This repository and the Copr repository also includes some ricing tools.

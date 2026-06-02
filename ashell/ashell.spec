@@ -8,7 +8,7 @@ Version: 0.8.0
 Release: 1%{?dist}
 License: MIT
 Group: Applications/System
-Source0: %{name}-%{version}.tar.gz
+Source0: {version}.tar.gz
 URL: https://github.com/MalpenZibo/ashell
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root

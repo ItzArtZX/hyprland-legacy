@@ -1,32 +1,43 @@
-%define __spec_install_post %{nil}
-%define __os_install_post %{_dbpath}/brp-compress
 %define debug_package %{nil}
 
-Name: ashell
-Summary: A ready to go Wayland status bar for Hyprland
-Version: 0.8.0
-Release: 0.8.0
-License: MIT
-Group: Applications/System
-Source0: %{name}-%{version}.tar.gz
-URL: https://github.com/MalpenZibo/ashell
+Name:           ashell
+Summary:        A ready-to-go Wayland status bar for Hyprland and Niri
+Version:        0.8.0
+Release:        1%{?dist}
+License:        MIT
+URL:            https://github.com/MalpenZibo/ashell
+Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+# Essential toolchains for building the Rust ecosystem
+BuildRequires:  cargo
+BuildRequires:  rust
+BuildRequires:  gcc-c++
+
+# Native system libraries required by iced/wgpu graphics backends
+BuildRequires:  wayland-devel
+BuildRequires:  libxkbcommon-devel
+BuildRequires:  dbus-devel
+BuildRequires:  vulkan-loader-devel
 
 %description
-%{summary}
+A beautiful, responsive, ready-to-use Wayland status bar built specifically 
+for the Hyprland and Niri compositors using the iced GUI toolkit.
 
 %prep
-%setup -q
+%autosetup
+
+%build
+# Tell cargo to compile the production optimized binary
+cargo build --release
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}
-cp -a * %{buildroot}
-
-%clean
-rm -rf %{buildroot}
+# Create the target destination directory and copy ONLY the compiled binary asset
+install -D -p -m 0755 target/release/ashell %{buildroot}%{_bindir}/ashell
 
 %files
-%defattr(-,root,root,-)
-%{_bindir}/*
+%license LICENSE
+%{_bindir}/ashell
+
+%changelog
+* Tue Jun 02 2026 Maintainer <artzx@fedora.org> - 0.8.0-1
+- Initial pristine functional package build

@@ -17,6 +17,7 @@ BuildRequires:  wayland-devel
 BuildRequires:  libxkbcommon-devel
 BuildRequires:  dbus-devel
 BuildRequires:  vulkan-loader-devel
+BuildRequires:  pipewire-devel
 
 %description
 A beautiful, responsive, ready-to-use Wayland status bar built specifically 

@@ -5,10 +5,10 @@
 Name: ashell
 Summary: A ready to go Wayland status bar for Hyprland
 Version: 0.8.0
-Release: 1%{?dist}
+Release: 0.8.0
 License: MIT
 Group: Applications/System
-Source0: ashell-%{version}.tar.gz
+Source0: %{name}-%{version}.tar.gz
 URL: https://github.com/MalpenZibo/ashell
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root

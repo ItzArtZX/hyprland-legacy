@@ -6,14 +6,13 @@ Version:        0.8.0
 Release:        1%{?dist}
 License:        MIT
 URL:            https://github.com/MalpenZibo/ashell
-Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 
-# Essential toolchains for building the Rust ecosystem
+# Tell Copr that the file is sitting right next to the spec inside the directory
+Source0:        %{name}-%{version}.tar.gz
+
 BuildRequires:  cargo
 BuildRequires:  rust
 BuildRequires:  gcc-c++
-
-# Native system libraries required by iced/wgpu graphics backends
 BuildRequires:  wayland-devel
 BuildRequires:  libxkbcommon-devel
 BuildRequires:  dbus-devel
@@ -24,14 +23,13 @@ A beautiful, responsive, ready-to-use Wayland status bar built specifically
 for the Hyprland and Niri compositors using the iced GUI toolkit.
 
 %prep
-%autosetup
+# Ensure this matches the exact folder name hidden inside your custom tarball
+%autosetup -n %{name}-%{version}
 
 %build
-# Tell cargo to compile the production optimized binary
 cargo build --release
 
 %install
-# Create the target destination directory and copy ONLY the compiled binary asset
 install -D -p -m 0755 target/release/ashell %{buildroot}%{_bindir}/ashell
 
 %files
@@ -40,4 +38,4 @@ install -D -p -m 0755 target/release/ashell %{buildroot}%{_bindir}/ashell
 
 %changelog
 * Tue Jun 02 2026 Maintainer <artzx@fedora.org> - 0.8.0-1
-- Initial pristine functional package build
+- Localized tarball and spec layou
